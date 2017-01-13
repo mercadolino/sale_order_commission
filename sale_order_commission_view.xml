@@ -1,0 +1,188 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="sale_order_commission_form_view">
+			<field name="name"> Inherited Sale Order Form View Commission</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_order_form" />
+			<field name="arch" type="xml">
+				
+				<xpath expr="/form/header/button[@name='invoice_cancel']" positon="after">
+					<button name="calculate_commission" string="Calculate Commission"
+						groups="base.group_user" />
+				</xpath>
+				<xpath expr="/form/sheet/notebook/page[@string='Other Information']"
+					position="before">
+					<page string="Commission">
+						<field name="commission_ids" context="{'sale_order_id':active_id}"
+							attrs="{'readonly': [('state','not in',['draft','progress','manual'])]}">
+							<tree editable="top">
+								<field name="employee_id" domain="[('is_driver','=', 1)]"
+									on_change="employee_id_change(employee_id,context)" />
+								<field name="sale_date" invisible="1" />
+								<field name="num_transport" />
+								<field name="commission_value" sum="Total Commission" />
+								<field name="state" readonly="1" />
+								<field name="payment_ref" readonly="1"
+									attrs="{'invisible': [('state','in',['draft','confirmed'])]}" />
+								<field name="payment_date" readonly="1"
+									attrs="{'invisible': [('state','in',['draft','confirmed'])]}" />
+							</tree>
+						</field>
+					</page>
+				</xpath>
+			</field>
+		</record>
+
+		<record id="view_sale_order_commission_filter" model="ir.ui.view">
+			<field name="name">Sale Order Commission</field>
+			<field name="model">sale.order.commission</field>
+			<field name="arch" type="xml">
+				<search string="Search Commission">
+					<field name="employee_id" />
+					<field name="sale_order_id" />
+					<field name="sale_date" />
+					<field name="state" />
+					<field name="payment_ref" />
+					<field name="payment_date" />
+					<field name="commission_value" />
+					<separator />
+					<group expand="0" string="Group By...">
+						<filter string="Employee" domain="[]"
+							context="{'group_by':'employee_id'}" />
+						<filter string="Sale Order" domain="[]"
+							context="{'group_by':'sale_order_id'}" />
+						<filter string="Sale Date" domain="[]"
+							context="{'group_by':'sale_date'}" />
+						<filter string="State" domain="[]" context="{'group_by':'state'}" />
+						<filter string="Payment Reference" domain="[]"
+							context="{'group_by':'payment_ref'}" />
+						<filter string="Payment Date" domain="[]"
+							context="{'group_by':'payment_date'}" />
+						<filter string="Commission Value" domain="[]"
+							context="{'group_by':'commission_value'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record id="view_sale_commission_in_report_filter" model="ir.ui.view">
+			<field name="name">Sale Individual Production</field>
+			<field name="model">sale.order.commission_individual_report</field>
+			<field name="arch" type="xml">
+				<search string="Search Individual Production">
+					<field name="employee_id" />
+					<field name="year" />
+					<field name="month" />
+					<separator />
+					<group expand="0" string="Group By...">
+						<filter string="Employee" domain="[]"
+							context="{'group_by':'employee_id'}" />
+						<filter string="Month" domain="[]" context="{'group_by':'month'}" />
+						<filter string="Year" domain="[]" context="{'group_by':'year'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sale_order_commission_ind__report_tree_view">
+			<field name="name">Sale Order Commission tree</field>
+			<field name="model">sale.order.commission_individual_report</field>
+			<field name="arch" type="xml">
+				<tree string="Employee Statistic">
+					<field name="employee_id" />
+					<field name="year" />
+					<field name="month" />
+					<field name="num_of_sale" />
+					<field name="total_commission_value" sum="Total Commission" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sale_order_commission_ind__report_graph_view">
+			<field name="name">Sale Order Commission form</field>
+			<field name="model">sale.order.commission_individual_report</field>
+			<field name="arch" type="xml">
+				<graph string="Commission Per Month" type="bar">
+					<field name="month" domain="[('year','=',time.strftime('%%Y'))]" />
+					<field name="total_commission_value" />
+				</graph>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="object_name_tree_view">
+			<field name="name">Sale Order Commission tree</field>
+			<field name="model">sale.order.commission</field>
+			<field name="arch" type="xml">
+				<tree string="Employee Commission">
+					<field name="employee_id" />
+					<field name="sale_order_id" domain="[('state','=','done')]" />
+					<field name="sale_date" />
+					<field name="state" />
+					<field name="payment_ref"
+						attrs="{'invisible': [('state','in',['draft','confirmed'])]}" />
+					<field name="payment_date"
+						attrs="{'invisible': [('state','in',['draft','confirmed'])]}" />
+					<field name="commission_value" sum="Total Commission" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="act_hr_employee_commission_ind_report" model="ir.actions.act_window">
+			<field name="res_model">sale.order.commission_individual_report</field>
+			<field name="name">Production Statistics</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,graph</field>
+			<field name="context">{'search_default_employee_id': [active_id],
+				'default_employee_id': active_id}
+			</field>
+		</record>
+
+		<record id="act_hr_employee_commission_list" model="ir.actions.act_window">
+			<field name="res_model">sale.order.commission</field>
+			<field name="name">Commission</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree</field>
+			<field name="context">{'search_default_employee_id': [active_id],
+				'default_employee_id': active_id}
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_employee_commission_form_view">
+			<field name="name">hr employee form</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//div[@name='button_box']" position="inside">
+					<button name="%(act_hr_employee_commission_list)d" string="Commission"
+						type="action" groups="base.group_hr_user" attrs="{'invisible': [('is_driver','=', False )]}" />
+					<button name="%(act_hr_employee_commission_ind_report)d"
+						string="Production Statistics" type="action" groups="base.group_hr_user"
+						attrs="{'invisible': [('is_driver','=', False )]}" />
+				</xpath>
+			</field>
+		</record>
+
+		<record id="sale_commission_form_view" model="ir.ui.view">
+			<field name="name">Sale Commission - Inherited Product Form View
+			</field>
+			<field name="model">product.product</field>
+			<field name="inherit_id" ref="product.product_normal_form_view" />
+			<field name="priority" eval="1024" />
+			<field name="arch" type="xml">
+				<xpath expr="//page[@string='Sales']" position="after">
+					<page string="Sale Comission">
+					<p>This commission will be applied for a sale of this product to the driver and or helper
+					  if it has value.</p>
+						<group col="6">
+							<field name="type" />
+							<field name="driver_commission"/>
+							<field name="helper_commission"/>
+						</group>
+					</page>
+				</xpath>
+			</field>
+		</record>
+		
+	</data>
+</openerp>

@@ -1,0 +1,280 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* sale_order_commission
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0-20131016-232725\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-27 17:07+0000\n"
+"PO-Revision-Date: 2014-05-06 14:01+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission,state:0
+msgid "Confirmed"
+msgstr "Confirmado"
+
+#. module: sale_order_commission
+#: field:sale.order.commission_individual_report,num_of_sale:0
+msgid "Total Sale"
+msgstr "Venda Total"
+
+#. module: sale_order_commission
+#: view:sale.order.commission:0 field:sale.order.commission,sale_date:0
+msgid "Sale Date"
+msgstr "Data de Venda"
+
+#. module: sale_order_commission
+#: field:sale.order.commission,payment_ref:0
+msgid "Payment Ref"
+msgstr "Ref. Pagamento"
+
+#. module: sale_order_commission
+#: view:sale.order.commission:0 view:sale.order.commission_individual_report:0
+msgid "Group By..."
+msgstr "Agrupa Por..."
+
+#. module: sale_order_commission
+#: field:sale.order.commission,state:0
+msgid "State"
+msgstr "Estado"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission,state:0
+msgid "Draft"
+msgstr "Rascunho"
+
+#. module: sale_order_commission
+#: view:sale.order.commission:0
+msgid "Search Commission"
+msgstr "Pesquisar Comissão"
+
+#. module: sale_order_commission
+#: model:ir.model,name:sale_order_commission.model_hr_employee
+#: view:sale.order.commission:0 field:sale.order.commission,employee_id:0
+#: view:sale.order.commission_individual_report:0
+#: field:sale.order.commission_individual_report,employee_id:0
+msgid "Employee"
+msgstr "Funcionário"
+
+#. module: sale_order_commission
+#: model:ir.model,name:sale_order_commission.model_sale_order_commission
+msgid "Sales order commission"
+msgstr "Comissão de Venda"
+
+#. module: sale_order_commission
+#: field:hr.employee,commission_ind_report_ids:0
+msgid "Commission Individual Report"
+msgstr "Relatório Individual de Comissão"
+
+#. module: sale_order_commission
+#: view:hr.employee:0
+#: model:ir.actions.act_window,name:sale_order_commission.act_hr_employee_commission_ind_report
+msgid "Production Statistics"
+msgstr "Estatística de Produção"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission_individual_report,month:0
+msgid "March"
+msgstr "Março"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission_individual_report,month:0
+msgid "August"
+msgstr "Agosto"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission_individual_report,month:0
+msgid "May"
+msgstr "Maio"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission_individual_report,month:0
+msgid "June"
+msgstr "Junho"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission,state:0
+msgid "Paid"
+msgstr "Pago"
+
+#. module: sale_order_commission
+#: field:sale.order.commission,sale_order_value:0
+#: field:sale.order.commission_individual_report,sale_order_value:0
+msgid "Sale Value"
+msgstr "Valor de Venda"
+
+#. module: sale_order_commission
+#: field:sale.order.commission,payment_date:0
+msgid "Payment Date"
+msgstr "Data de Pagamento"
+
+#. module: sale_order_commission
+#: view:sale.order.commission:0
+msgid "Employee Commission"
+msgstr "Comissão do Funcionário"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission_individual_report,month:0
+msgid "July"
+msgstr "Julho"
+
+#. module: sale_order_commission
+#: view:sale.order.commission_individual_report:0
+msgid "Search Individual Production"
+msgstr "Pesquisar Produção Individual"
+
+#. module: sale_order_commission
+#: code:addons/sale_order_commission/sale_order_commission.py:63
+#: constraint:sale.order.commission:0
+#, python-format
+msgid "Error: There a Employee that is not in transport information!"
+msgstr ""
+"Erro: Existe comissão de motorista que não está na informação de transporte!"
+
+#. module: sale_order_commission
+#: field:sale.order.commission_individual_report,total_commission_value:0
+msgid "Total Commission Value"
+msgstr "Valor Total da Comissão"
+
+#. module: sale_order_commission
+#: code:addons/sale_order_commission/sale_order_commission.py:37
+#, python-format
+msgid ""
+"No Transport information was found for this employee.\n"
+" Please, verify he belongs to the transport sale!"
+msgstr ""
+"Não foi encontrado nenhuma informação de transporte para este funcionário.\n"
+"Por favor, verifique se ele pertence à venda de transporte!"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission_individual_report,month:0
+msgid "February"
+msgstr "Fevereiro"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission_individual_report,month:0
+msgid "October"
+msgstr "Outubro"
+
+#. module: sale_order_commission
+#: view:sale.order.commission_individual_report:0
+#: field:sale.order.commission_individual_report,year:0
+msgid "Year"
+msgstr "Ano"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission_individual_report,month:0
+msgid "January"
+msgstr "Janeiro"
+
+#. module: sale_order_commission
+#: field:sale.order.commission,sale_order_id:0
+msgid "Sale Order"
+msgstr "Ordem de Venda"
+
+#. module: sale_order_commission
+#: model:ir.model,name:sale_order_commission.model_sale_order_commission_individual_report
+msgid "Sale Order Commission Statistics"
+msgstr "Estatística de Comissão de Ordem de Venda"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission_individual_report,month:0
+msgid "April"
+msgstr "Abril"
+
+#. module: sale_order_commission
+#: view:sale.order.commission_individual_report:0
+msgid "Commission Per Month"
+msgstr "Comissão Por Mês"
+
+#. module: sale_order_commission
+#: field:sale.order.commission,num_transport:0
+msgid "Transported Quantity"
+msgstr "Quantidade Transportada"
+
+#. module: sale_order_commission
+#: view:sale.order.commission_individual_report:0
+msgid "Employee Statistic"
+msgstr "Estatística do Funcionário"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission_individual_report,month:0
+msgid "November"
+msgstr "Novembro"
+
+#. module: sale_order_commission
+#: code:addons/sale_order_commission/sale_order_commission.py:20
+#: help:sale.order.commission,payment_ref:0
+#, python-format
+msgid "Reference to payslip number"
+msgstr "Referência ao recibo de vencimento"
+
+#. module: sale_order_commission
+#: field:sale.order.commission,commission_value:0
+msgid "Commission Value"
+msgstr "Valor de Comissão"
+
+#. module: sale_order_commission
+#: view:sale.order:0 view:sale.order.commission:0
+#: view:sale.order.commission_individual_report:0
+msgid "Total Commission"
+msgstr "Total Comissão"
+
+#. module: sale_order_commission
+#: view:hr.employee:0 field:hr.employee,commission_ids:0
+#: model:ir.actions.act_window,name:sale_order_commission.act_hr_employee_commission_list
+#: view:sale.order:0
+msgid "Commission"
+msgstr "Comissão"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission_individual_report,month:0
+msgid "September"
+msgstr "Setembro"
+
+#. module: sale_order_commission
+#: field:sale.order,commission_ids:0
+msgid "Commissions"
+msgstr "Comissões"
+
+#. module: sale_order_commission
+#: view:sale.order.commission_individual_report:0
+#: field:sale.order.commission_individual_report,month:0
+msgid "Month"
+msgstr "Mês"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission,state:0
+msgid "Canceled"
+msgstr "Cancelado"
+
+#. module: sale_order_commission
+#: code:addons/sale_order_commission/sale_order_commission.py:37
+#, python-format
+msgid "Warning"
+msgstr "Aviso"
+
+#. module: sale_order_commission
+#: selection:sale.order.commission_individual_report,month:0
+msgid "December"
+msgstr "Dezembro"
+
+#. module: sale_order_commission
+#: code:addons/sale_order_commission/sale_order_commission.py:22
+#: help:sale.order.commission,payment_date:0
+#, python-format
+msgid "Date when the commission was paid in PaySlip"
+msgstr "Data que a comissão foi paga no recibo de vencimento"
+
+#. module: sale_order_commission
+#: model:ir.model,name:sale_order_commission.model_sale_order
+msgid "Sales Order"
+msgstr "Ordem de venda"

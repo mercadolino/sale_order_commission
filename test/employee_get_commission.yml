@@ -1,0 +1,22 @@
+-
+  In order to test the sales order commission for a given employee
+  and assuming the there is already data related to the commission
+  associated to the employee from a data range.
+  First It must be selected a Employee. This case it will be selected
+  Fabien Pinckaers employee.
+-
+  !python {model: hr.employee, id: hr.employee_fp}: |
+    value = self.get_commission(cr, uid,ref("hr.employee_fp") , '2013-11-01','2013-12-30',context=None)
+
+- In order to set the commission state for a given employee fist we choose the employee Fabien Pinckaers and for the 
+  same date range used above. PS0001 corresponds to a payslip document number, payment_date to the date which the payslip
+  was issued.
+-
+  !python {model: hr.employee, id: hr.employee_fp}: |
+    self.set_commission_paid(cr, uid, ref("hr.employee_fp"), 'PS0001', '2013-12-27','2013-11-01','2013-12-30',context=None)
+    
+    commission_ids = self.pool.get('sale.order.commission').search(cr, uid, ['&',('employee_id','=',ref("hr.employee_fp")),
+                  '&',('sale_date','>=','2013-11-01'),
+                  '&',('sale_date','<=','2013-12-30'),
+                  ('state','=','paid')],order='sale_date')
+    print 'list of commissions in paid state:' + str(commission_ids)

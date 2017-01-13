@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sale_order_commission,sale.order.commission,model_sale_order_commission,base.group_sale_salesman,1,1,1,1
+access_sale_order_commission,sale.order.commission,model_sale_order_commission,base.group_hr_user,1,0,0,0
+access_sale_order_commission,sale.order.commission,model_sale_order_commission,base.group_hr_manager,1,0,0,0
+access_sale_order_commission_individual_report,sale.order.commission_individual_report,model_sale_order_commission_individual_report,base.group_hr_user,1,0,0,0
+access_sale_order_commission_individual_report,sale.order.commission_individual_report,model_sale_order_commission_individual_report,base.group_hr_manager,1,0,0,0
